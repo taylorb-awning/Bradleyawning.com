@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bradley Awning — Professional Awning Cleaning | Salt Lake City, UT</title>
+<meta name="description" content="Professional awning cleaning in Salt Lake City. Remove dirt, mold & restore color. Free estimates. Call 385-256-6659.">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── FLYER-MATCHED PALETTE ───────────────────────────────────────────────── */
+:root {
+  --navy-deep:  #02123b;
+  --navy:       #03256d;
+  --navy-mid:   #0e2654;
+  --blue:       #033d8b;
+  --blue-bright:#4c8cb6;
+  --red:        #963a2e;
+  --red-bright: #c0392b;
+  --gold:       #f5c518;
+  --gold-dark:  #d4a800;
+  --white:      #ffffff;
+  --off-white:  #d5e9f0;
+  --cream:      #f9f6ec;
+  --text-light: rgba(213,233,240,0.85);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;background:var(--cream);color:var(--navy-deep);overflow-x:hidden;}
+
+/* ── WATER RIPPLE TEXTURE ────────────────────────────────────────────────── */
+.water-bg {
+  background:
+    radial-gradient(ellipse 120% 60% at 20% 30%, rgba(76,140,182,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 80% at 80% 70%, rgba(3,61,139,0.25) 0%, transparent 55%),
+    linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 35%, var(--blue) 70%, #0a4fa8 100%);
+}
+
+/* ── NAV ─────────────────────────────────────────────────────────────────── */
+nav {
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:70px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 52px;
+  background:rgba(2,18,59,0.97);
+  border-bottom:3px solid var(--gold);
+  backdrop-filter:blur(14px);
+  animation:navDrop .5s ease both;
+}
+@keyframes navDrop{from{transform:translateY(-100%)}to{transform:translateY(0)}}
+
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.brand-icon{width:46px;height:34px;flex-shrink:0;}
+.brand-text .t1{display:block;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;letter-spacing:2px;color:#fff;}
+.brand-text .t2{display:block;font-size:10px;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);font-weight:600;}
+
+.nav-menu{display:flex;list-style:none;gap:32px;align-items:center;}
+.nav-menu a{color:rgba(255,255,255,.75);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;transition:color .2s;position:relative;}
+.nav-menu a::after{content:'';position:absolute;bottom:-5px;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .25s;}
+.nav-menu a:hover{color:#fff;}
+.nav-menu a:hover::after{transform:scaleX(1);}
+.nav-cta-btn{background:var(--gold)!important;color:var(--navy-deep)!important;padding:9px 20px;border-radius:3px;font-weight:700!important;}
+.nav-cta-btn::after{display:none!important;}
+.nav-cta-btn:hover{background:var(--gold-dark)!important;color:var(--navy-deep)!important;}
+
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+.burger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:.3s;}
+
+/* ── HERO ─────────────────────────────────────────────────────────────────── */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:130px 52px 80px;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 110% 70% at 15% 40%, rgba(76,140,182,0.22) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 90% at 85% 60%, rgba(150,58,46,0.12) 0%, transparent 50%),
+    linear-gradient(155deg, var(--navy-deep) 0%, var(--navy) 40%, var(--blue) 75%, #0b55b8 100%);
+}
+
+/* animated water lines */
+.wave-container{position:absolute;bottom:0;left:0;right:0;height:180px;overflow:hidden;}
+.wave{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:wavemove 8s linear infinite;}
+.wave2{animation-duration:11s;animation-delay:-3s;opacity:.5;}
+@keyframes wavemove{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* diagonal stripe overlay */
+.hero::after{
+  content:'';position:absolute;top:0;right:0;width:50%;height:100%;
+  background:repeating-linear-gradient(-50deg,transparent 0,transparent 28px,rgba(255,255,255,.025) 28px,rgba(255,255,255,.025) 56px);
+  pointer-events:none;
+}
+
+/* bubble drops */
+.drops{position:absolute;inset:0;pointer-events:none;}
+.drop{
+  position:absolute;border-radius:50%;
+  border:1.5px solid rgba(76,140,182,.4);
+  animation:floatUp linear infinite;
+}
+.drop::after{content:'';position:absolute;top:18%;left:20%;width:28%;height:18%;background:rgba(255,255,255,.3);border-radius:50%;transform:rotate(-35deg);}
+@keyframes floatUp{
+  0%{transform:translateY(105vh) scale(.5);opacity:0;}
+  8%{opacity:1;}
+  92%{opacity:.5;}
+  100%{transform:translateY(-8vh) scale(1.1);opacity:0;}
+}
+
+.hero-content{position:relative;z-index:2;max-width:660px;animation:riseIn .9s .15s ease both;}
+@keyframes riseIn{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:translateY(0)}}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);
+  margin-bottom:22px;
+}
+.eyebrow::before,.eyebrow::after{content:'';width:28px;height:1px;background:var(--gold);}
+
+.hero h1{
+  font-family:'Barlow Condensed',sans-serif;font-weight:900;
+  font-size:clamp(62px,9.5vw,116px);line-height:.9;letter-spacing:-1px;
+  text-transform:uppercase;color:#fff;margin-bottom:30px;
+}
+.hero h1 .accent{color:var(--gold);display:block;}
+.hero h1 .red-word{color:#e05a4a;display:block;}
+
+.hero-desc{font-size:18px;line-height:1.75;font-weight:300;color:var(--text-light);max-width:520px;margin-bottom:46px;}
+
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:52px;}
+.btn-gold{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--gold);color:var(--navy-deep);
+  padding:16px 34px;border-radius:3px;text-decoration:none;
+  font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;
+  box-shadow:0 6px 28px rgba(245,197,24,.4);
+  transition:background .2s,transform .18s,box-shadow .2s;
+}
+.btn-gold:hover{background:var(--gold-dark);transform:translateY(-3px);box-shadow:0 10px 36px rgba(245,197,24,.55);}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:10px;
+  border:2px solid rgba(213,233,240,.45);color:#fff;
+  padding:16px 34px;border-radius:3px;text-decoration:none;
+  font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  transition:border-color .2s,background .2s;
+}
+.btn-outline:hover{border-color:rgba(213,233,240,.9);background:rgba(255,255,255,.07);}
+
+.hero-badges{display:flex;gap:36px;flex-wrap:wrap;}
+.badge-item .badge-val{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:900;color:var(--gold);line-height:1;}
+.badge-item .badge-lbl{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(213,233,240,.65);font-weight:500;}
+
+/* floating phone card */
+.phone-card{
+  position:absolute;right:68px;bottom:90px;z-index:10;
+  background:rgba(3,37,109,.7);
+  border:1px solid rgba(213,233,240,.2);
+  backdrop-filter:blur(20px);
+  border-radius:14px;padding:26px 34px;
+  text-align:center;
+  animation:riseIn .9s .4s ease both;
+  border-top:3px solid var(--gold);
+}
+.phone-card .pc-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px;}
+.phone-card a{display:block;font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:900;color:#fff;text-decoration:none;letter-spacing:.5px;transition:color .2s;}
+.phone-card a:hover{color:var(--gold);}
+.phone-card small{font-size:12px;color:rgba(213,233,240,.55);}
+
+/* ── STRIPE DIVIDER ──────────────────────────────────────────────────────── */
+.awning-divider{
+  height:48px;overflow:hidden;display:flex;
+  border-top:3px solid #fff;border-bottom:3px solid #fff;
+}
+.stripe-seg{flex:1;}
+
+/* ── SECTION SHARED ──────────────────────────────────────────────────────── */
+section.content{padding:92px 52px;}
+.sec-tag{display:block;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
+.sec-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(38px,5vw,60px);line-height:.95;text-transform:uppercase;color:var(--navy-deep);margin-bottom:18px;}
+.sec-title span{color:var(--blue);}
+.sec-sub{font-size:17px;line-height:1.75;color:#4a6080;max-width:560px;}
+.centered{text-align:center;}
+.centered .sec-sub{margin:0 auto;}
+
+/* ── SERVICES ─────────────────────────────────────────────────────────────── */
+.services-sec{background:var(--cream);}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:60px;}
+.svc-card{
+  background:#fff;border-radius:10px;padding:38px 32px;
+  border-top:4px solid transparent;
+  box-shadow:0 2px 16px rgba(2,18,59,.07);
+  transition:border-color .3s,transform .3s,box-shadow .3s;
+}
+.svc-card:hover{border-color:var(--gold);transform:translateY(-6px);box-shadow:0 18px 48px rgba(2,18,59,.13);}
+.svc-icon{width:58px;height:58px;border-radius:10px;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:22px;}
+.svc-card h3{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:800;text-transform:uppercase;color:var(--navy-deep);margin-bottom:10px;}
+.svc-card p{font-size:15px;line-height:1.7;color:#4a6080;}
+
+/* ── WHY US ───────────────────────────────────────────────────────────────── */
+.why-sec{background:#fff;}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-top:0;}
+.why-visual-wrap{position:relative;padding-bottom:30px;}
+.why-main-card{
+  border-radius:18px;padding:52px 44px;
+  background:linear-gradient(145deg,var(--navy-deep),var(--navy),var(--blue));
+  color:#fff;position:relative;overflow:hidden;
+}
+.why-main-card::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:rgba(76,140,182,.12);}
+.why-main-card::after{content:'';position:absolute;bottom:-40px;left:-40px;width:150px;height:150px;border-radius:50%;background:rgba(245,197,24,.07);}
+.why-big-num{font-family:'Barlow Condensed',sans-serif;font-size:96px;font-weight:900;color:var(--gold);line-height:1;position:relative;z-index:1;}
+.why-big-label{font-size:16px;font-weight:500;color:rgba(213,233,240,.75);margin-bottom:18px;position:relative;z-index:1;}
+.why-main-card p{font-size:15px;line-height:1.8;color:rgba(213,233,240,.85);position:relative;z-index:1;}
+.why-pill{
+  position:absolute;bottom:-16px;right:28px;
+  background:var(--gold);color:var(--navy-deep);
+  border-radius:10px;padding:14px 22px;text-align:center;
+  box-shadow:0 8px 28px rgba(245,197,24,.45);
+}
+.why-pill strong{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:900;display:block;line-height:1;}
+.why-pill span{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+
+.perks{list-style:none;display:flex;flex-direction:column;gap:16px;margin-top:32px;}
+.perk{display:flex;align-items:flex-start;gap:14px;padding:18px 22px;border-radius:8px;background:var(--cream);transition:background .2s,transform .2s;}
+.perk:hover{background:#e8eef8;transform:translateX(5px);}
+.perk-check{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--navy));display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;color:#fff;margin-top:2px;}
+.perk h4{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:800;text-transform:uppercase;color:var(--navy-deep);margin-bottom:3px;}
+.perk p{font-size:14px;color:#4a6080;line-height:1.6;}
+
+/* ── PROCESS ──────────────────────────────────────────────────────────────── */
+.process-sec{
+  padding:92px 52px;
+  background:linear-gradient(160deg,var(--navy-deep) 0%,var(--navy) 45%,var(--blue) 100%);
+  color:#fff;position:relative;overflow:hidden;
+}
+.process-sec::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,transparent 0,transparent 50px,rgba(255,255,255,.02) 50px,rgba(255,255,255,.02) 100px);
+}
+.process-sec .sec-tag{color:var(--gold);}
+.process-sec .sec-title{color:#fff;}
+.process-sec .sec-title span{color:var(--gold);}
+.process-sec .sec-sub{color:rgba(213,233,240,.7);}
+.steps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:60px;position:relative;z-index:1;}
+.steps-row::before{content:'';position:absolute;top:34px;left:12%;right:12%;height:2px;background:linear-gradient(90deg,var(--gold),var(--blue-bright),var(--gold));}
+.step{text-align:center;padding:0 20px;position:relative;z-index:1;}
+.step-circle{
+  width:68px;height:68px;border-radius:50%;
+  background:var(--gold);color:var(--navy-deep);
+  font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 24px;
+  box-shadow:0 0 0 6px rgba(245,197,24,.18);
+  transition:transform .3s;
+}
+.step:hover .step-circle{transform:scale(1.12);}
+.step h3{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:10px;}
+.step p{font-size:13px;line-height:1.7;color:rgba(213,233,240,.65);}
+
+/* ── BEFORE / AFTER STRIP ────────────────────────────────────────────────── */
+.ba-sec{background:var(--cream);padding:92px 52px;}
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:52px;}
+.ba-card{border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(2,18,59,.12);}
+.ba-card-top{
+  height:200px;display:flex;align-items:center;justify-content:center;
+  font-size:64px;position:relative;overflow:hidden;
+}
+.ba-before{background:linear-gradient(135deg,#9ba8b5,#c5cdd6);}
+.ba-after {background:linear-gradient(135deg,var(--blue),var(--navy));}
+.ba-tag{
+  position:absolute;top:14px;left:14px;
+  font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;letter-spacing:2px;text-transform:uppercase;
+  padding:5px 14px;border-radius:3px;
+}
+.ba-before .ba-tag{background:#666;color:#fff;}
+.ba-after  .ba-tag{background:var(--gold);color:var(--navy-deep);}
+.ba-card-body{background:#fff;padding:24px 28px;}
+.ba-card-body h4{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;text-transform:uppercase;color:var(--navy-deep);margin-bottom:6px;}
+.ba-card-body p{font-size:14px;color:#4a6080;line-height:1.6;}
+
+/* ── REVIEWS ──────────────────────────────────────────────────────────────── */
+.reviews-sec{background:#fff;padding:92px 52px;}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:52px;}
+.rev-card{
+  background:var(--cream);border-radius:10px;padding:34px 30px;
+  border-left:4px solid var(--gold);
+  transition:transform .3s,box-shadow .3s;
+}
+.rev-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(2,18,59,.1);}
+.stars{color:var(--gold);font-size:16px;letter-spacing:2px;margin-bottom:14px;}
+.rev-text{font-size:15px;line-height:1.8;color:#4a6080;font-style:italic;margin-bottom:22px;}
+.rev-person{display:flex;align-items:center;gap:13px;}
+.rev-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:900;color:#fff;}
+.rev-name{font-weight:700;font-size:14px;color:var(--navy-deep);}
+.rev-role{font-size:12px;color:#6a80a0;}
+
+/* ── CONTACT ──────────────────────────────────────────────────────────────── */
+.contact-sec{
+  padding:92px 52px;
+  background:linear-gradient(155deg,var(--navy-deep) 0%,var(--navy) 50%,#0b4da0 100%);
+  color:#fff;position:relative;overflow:hidden;
+}
+.contact-sec::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0,transparent 60px,rgba(255,255,255,.018) 60px,rgba(255,255,255,.018) 120px);}
+.contact-sec .sec-tag{color:var(--gold);}
+.contact-sec .sec-title{color:#fff;}
+.contact-sec .sec-title span{color:var(--gold);}
+.contact-sec .sec-sub{color:rgba(213,233,240,.7);}
+
+.contact-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start;margin-top:56px;position:relative;z-index:1;}
+
+.contact-info-cards{display:flex;flex-direction:column;gap:16px;}
+.info-card{
+  display:flex;align-items:center;gap:16px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(213,233,240,.15);
+  border-radius:10px;padding:20px 24px;
+  text-decoration:none;color:#fff;
+  transition:background .2s,transform .2s;
+}
+.info-card:hover{background:rgba(255,255,255,.13);transform:translateX(6px);}
+.info-card-icon{font-size:26px;flex-shrink:0;}
+.info-card-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:3px;}
+.info-card-val{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;}
+
+.contact-hours{margin-top:28px;background:rgba(245,197,24,.1);border:1px solid rgba(245,197,24,.25);border-radius:10px;padding:22px 24px;}
+.contact-hours h4{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.contact-hours p{font-size:14px;color:rgba(213,233,240,.75);line-height:1.8;}
+
+/* form */
+.contact-form{background:rgba(255,255,255,.07);border:1px solid rgba(213,233,240,.15);border-radius:14px;padding:38px;border-top:3px solid var(--gold);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fg{display:flex;flex-direction:column;gap:7px;margin-bottom:14px;}
+.fg label{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(213,233,240,.6);}
+.fg input,.fg textarea,.fg select{
+  background:rgba(255,255,255,.08);border:1px solid rgba(213,233,240,.2);border-radius:5px;
+  padding:13px 15px;color:#fff;font-family:'Barlow',sans-serif;font-size:15px;outline:none;
+  transition:border-color .2s,background .2s;width:100%;
+}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(213,233,240,.35);}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--gold);background:rgba(255,255,255,.12);}
+.fg textarea{resize:vertical;min-height:105px;}
+.fg select option{background:var(--navy-deep);color:#fff;}
+.btn-submit-form{
+  width:100%;padding:17px;
+  background:var(--gold);color:var(--navy-deep);border:none;border-radius:5px;cursor:pointer;
+  font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;letter-spacing:2px;text-transform:uppercase;
+  transition:background .2s,transform .15s;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+}
+.btn-submit-form:hover{background:var(--gold-dark);transform:translateY(-2px);}
+.btn-submit-form.loading{opacity:.7;pointer-events:none;}
+.form-msg{display:none;text-align:center;padding:32px;font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;color:var(--gold);}
+.form-error{color:#e05a4a;font-size:12px;display:none;}
+
+/* ── FOOTER ───────────────────────────────────────────────────────────────── */
+footer{
+  background:var(--navy-deep);
+  border-top:3px solid var(--gold);
+  padding:36px 52px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;
+}
+footer p{font-size:13px;color:rgba(213,233,240,.45);}
+footer a{color:var(--gold);text-decoration:none;}
+.footer-links{display:flex;gap:24px;}
+.footer-links a{color:rgba(213,233,240,.45);text-decoration:none;font-size:13px;transition:color .2s;}
+.footer-links a:hover{color:#fff;}
+
+/* ── REVEAL ANIMATIONS ────────────────────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ── TOAST ────────────────────────────────────────────────────────────────── */
+.toast{
+  position:fixed;bottom:28px;right:28px;z-index:999;
+  background:var(--navy);border-left:4px solid var(--gold);
+  color:#fff;padding:16px 24px;border-radius:8px;
+  font-size:15px;font-weight:500;
+  box-shadow:0 8px 32px rgba(0,0,0,.35);
+  transform:translateY(80px);opacity:0;
+  transition:all .4s ease;
+  pointer-events:none;
+}
+.toast.show{transform:translateY(0);opacity:1;}
+
+/* ── MOBILE ───────────────────────────────────────────────────────────────── */
+@media(max-width:960px){
+  nav{padding:0 24px;}
+  .nav-menu{display:none;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(2,18,59,.98);padding:24px;gap:18px;border-bottom:2px solid var(--gold);z-index:199;}
+  .nav-menu.open{display:flex;}
+  .burger{display:flex;}
+  .hero{padding:110px 24px 210px;}
+  .phone-card{right:20px;bottom:24px;padding:18px 22px;}
+  .phone-card a{font-size:28px;}
+  section.content,.ba-sec,.reviews-sec,.contact-sec,.process-sec{padding:64px 24px;}
+  .why-grid{grid-template-columns:1fr;gap:40px;}
+  .ba-grid{grid-template-columns:1fr;}
+  .steps-row{grid-template-columns:1fr 1fr;gap:28px;}
+  .steps-row::before{display:none;}
+  .contact-inner{grid-template-columns:1fr;}
+  footer{flex-direction:column;text-align:center;padding:28px 24px;}
+}
+@media(max-width:560px){
+  .hero h1{font-size:54px;}
+  .hero-btns{flex-direction:column;}
+  .hero-badges{gap:22px;}
+  .steps-row{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-brand">
+    <svg class="brand-icon" viewBox="0 0 46 34" fill="none">
+      <path d="M3 17 C12 5 34 5 43 17 L43 26 L3 26 Z" fill="white"/>
+      <rect x="3"  y="17" width="5.7" height="9" fill="#963a2e"/>
+      <rect x="8.7"  y="17" width="5.7" height="9" fill="white"/>
+      <rect x="14.4" y="17" width="5.7" height="9" fill="#963a2e"/>
+      <rect x="20.1" y="17" width="5.7" height="9" fill="white"/>
+      <rect x="25.8" y="17" width="5.7" height="9" fill="#963a2e"/>
+      <rect x="31.5" y="17" width="5.7" height="9" fill="white"/>
+      <rect x="37.2" y="17" width="5.8" height="9" fill="#963a2e"/>
+      <path d="M3 26 Q7.3 32 11.6 26 Q15.9 32 20.2 26 Q24.5 32 28.8 26 Q33.1 32 37.4 26 Q41.7 32 43 26" stroke="#963a2e" stroke-width="2.2" fill="none"/>
+    </svg>
+    <div class="brand-text">
+      <span class="t1">Bradley Awning</span>
+      <span class="t2">Professional Cleaning</span>
+    </div>
+  </a>
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta-btn">Free Estimate</a></li>
+  </ul>
+  <button class="burger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero water-bg" id="home">
+  <div class="drops" id="drops"></div>
+  <div class="wave-container">
+    <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120 Z" fill="rgba(2,18,59,0.6)"/>
+    </svg>
+    <svg class="wave wave2" viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,40 C360,90 720,10 1080,60 C1260,85 1380,30 1440,50 L1440,120 L0,120 Z" fill="rgba(3,37,109,0.45)"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <div class="eyebrow">Salt Lake City, Utah</div>
+    <h1>
+      Professional
+      <span class="accent">Awning</span>
+      <span class="red-word">Cleaning</span>
+    </h1>
+    <p class="hero-desc">We remove dirt, mold & grime and restore your awnings to like-new condition — protecting your investment and keeping your business looking its best.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-gold">Get Free Estimate →</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+    <div class="hero-badges">
+      <div class="badge-item"><div class="badge-val">FREE</div><div class="badge-lbl">Estimates</div></div>
+      <div class="badge-item"><div class="badge-val">100%</div><div class="badge-lbl">Satisfaction</div></div>
+      <div class="badge-item"><div class="badge-val">All</div><div class="badge-lbl">Awning Types</div></div>
+    </div>
+  </div>
+  <div class="phone-card">
+    <div class="pc-label">Call or Text Today</div>
+    <a href="tel:3852566659">385-256-6659</a>
+    <small>Mon–Sat · Free Quotes</small>
+  </div>
+</section>
+
+<!-- AWNING STRIPE DIVIDER -->
+<div class="awning-divider">
+  <div class="stripe-seg" style="background:#963a2e"></div>
+  <div class="stripe-seg" style="background:#fff"></div>
+  <div class="stripe-seg" style="background:#963a2e"></div>
+  <div class="stripe-seg" style="background:#fff"></div>
+  <div class="stripe-seg" style="background:#963a2e"></div>
+  <div class="stripe-seg" style="background:#fff"></div>
+  <div class="stripe-seg" style="background:#963a2e"></div>
+  <div class="stripe-seg" style="background:#fff"></div>
+  <div class="stripe-seg" style="background:#963a2e"></div>
+  <div class="stripe-seg" style="background:#fff"></div>
+  <div class="stripe-seg" style="background:#963a2e"></div>
+  <div class="stripe-seg" style="background:#fff"></div>
+  <div class="stripe-seg" style="background:#963a2e"></div>
+  <div class="stripe-seg" style="background:#fff"></div>
+  <div class="stripe-seg" style="background:#963a2e"></div>
+  <div class="stripe-seg" style="background:#fff"></div>
+</div>
+
+<!-- SERVICES -->
+<section class="content services-sec" id="services">
+  <div class="centered reveal">
+    <span class="sec-tag">What We Do</span>
+    <h2 class="sec-title">Our <span>Services</span></h2>
+    <p class="sec-sub">Professional solutions for every awning type — commercial and residential.</p>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card reveal"><div class="svc-icon">🧹</div><h3>Deep Awning Cleaning</h3><p>Full-service cleaning that removes years of built-up dirt, dust, bird droppings, and environmental grime from your awning fabric or metal.</p></div>
+    <div class="svc-card reveal"><div class="svc-icon">🦠</div><h3>Mold & Mildew Removal</h3><p>Specialized treatment to safely eliminate mold, mildew, and algae — stopping damage before it becomes permanent.</p></div>
+    <div class="svc-card reveal"><div class="svc-icon">✨</div><h3>Color Restoration</h3><p>Revive faded awnings back to their original vibrant color. Our process lifts stains and restores shine without damaging the fabric.</p></div>
+    <div class="svc-card reveal"><div class="svc-icon">🏢</div><h3>Commercial Properties</h3><p>Restaurants, retail shops, hotels, and offices. We handle any size and schedule around your business hours.</p></div>
+    <div class="svc-card reveal"><div class="svc-icon">🏠</div><h3>Residential Awnings</h3><p>Patio awnings, window awnings, all styles and fabrics. Keep your home looking great and protected year-round.</p></div>
+    <div class="svc-card reveal"><div class="svc-icon">🔄</div><h3>Maintenance Plans</h3><p>Quarterly or bi-annual plans to protect your investment long-term. Regular cleaning extends awning life by years.</p></div>
+  </div>
+</section>
+
+<!-- AWNING DIVIDER -->
+<div class="awning-divider">
+  <div class="stripe-seg" style="background:#fff"></div>
+  <div class="stripe-seg" style="background:#963a2e"></div>
+  <div class="stripe-seg" style="background:#fff"></div>
+  <div class="stripe-seg" style="background:#963a2e"></div>
+  <div class="stripe-seg" style="background:#fff"></div>
+  <div class="stripe-seg" style="background:#963a2e"></div>
+  <div class="stripe-seg" style="background:#fff"></div>
+  <div class="stripe-seg" style="background:#963a2e"></div>
+  <div class="stripe-seg" style="background:#fff"></div>
+  <div class="stripe-seg" style="background:#963a2e"></div>
+  <div class="stripe-seg" style="background:#fff"></div>
+  <div class="stripe-seg" style="background:#963a2e"></div>
+  <div class="stripe-seg" style="background:#fff"></div>
+  <div class="stripe-seg" style="background:#963a2e"></div>
+  <div class="stripe-seg" style="background:#fff"></div>
+  <div class="stripe-seg" style="background:#963a2e"></div>
+</div>
+
+<!-- WHY US -->
+<section class="content why-sec" id="why">
+  <div class="why-grid">
+    <div class="why-visual-wrap reveal">
+      <div class="why-main-card">
+        <div class="why-big-num">100%</div>
+        <div class="why-big-label">Satisfaction Guaranteed</div>
+        <p>Every job gets our full attention and care. We don't leave until you're completely happy with the results — that's our promise to every single customer.</p>
+      </div>
+      <div class="why-pill">
+        <strong>FREE</strong>
+        <span>Estimates</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <span class="sec-tag">Why Choose Us</span>
+      <h2 class="sec-title">The Bradley<br><span>Difference</span></h2>
+      <p class="sec-sub">We're awning specialists who treat every property like our own.</p>
+      <ul class="perks">
+        <li class="perk"><div class="perk-check">✓</div><div><h4>Locally Owned & Operated</h4><p>Based in Salt Lake City. We know the local climate and what it takes to keep awnings looking great year-round.</p></div></li>
+        <li class="perk"><div class="perk-check">✓</div><div><h4>Safe on All Awning Types</h4><p>Works on fabric, vinyl, canvas, and metal without causing fading, shrinking, or damage.</p></div></li>
+        <li class="perk"><div class="perk-check">✓</div><div><h4>Fast, Reliable Service</h4><p>We show up on time, work efficiently, and leave your property cleaner than we found it — every time.</p></div></li>
+        <li class="perk"><div class="perk-check">✓</div><div><h4>Transparent Pricing</h4><p>No hidden fees, no surprises. Clear quotes before we start so you always know what you're paying.</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-sec" id="process">
+  <div class="centered reveal">
+    <span class="sec-tag">How It Works</span>
+    <h2 class="sec-title">Our <span>Process</span></h2>
+    <p class="sec-sub">Simple, transparent, and effective — here's what to expect.</p>
+  </div>
+  <div class="steps-row">
+    <div class="step reveal"><div class="step-circle">1</div><h3>Free Estimate</h3><p>Call or email us and we'll assess your awnings and give you a clear, honest quote — usually same day.</p></div>
+    <div class="step reveal"><div class="step-circle">2</div><h3>Schedule</h3><p>We work around your schedule including evenings and weekends so your business never has to close.</p></div>
+    <div class="step reveal"><div class="step-circle">3</div><h3>Deep Clean</h3><p>Our team arrives fully equipped and gets to work with professional-grade solutions safe for all fabrics.</p></div>
+    <div class="step reveal"><div class="step-circle">4</div><h3>You're Amazed</h3><p>See the transformation for yourself. We don't leave until the job is done right and you're fully satisfied.</p></div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="ba-sec" id="results">
+  <div class="centered reveal">
+    <span class="sec-tag">Our Results</span>
+    <h2 class="sec-title">Before & <span>After</span></h2>
+    <p class="sec-sub">The results speak for themselves. Add your own photos here as you build your portfolio!</p>
+  </div>
+  <div class="ba-grid">
+    <div class="ba-card reveal">
+      <div class="ba-card-top ba-before"><span>🏚️</span><span class="ba-tag">Before</span></div>
+      <div class="ba-card-body"><h4>Dirty, Moldy Awning</h4><p>Years of built-up mold, dirt, and grime leave awnings looking dark, stained, and faded.</p></div>
+    </div>
+    <div class="ba-card reveal">
+      <div class="ba-card-top ba-after"><span>🏪</span><span class="ba-tag">After</span></div>
+      <div class="ba-card-body"><h4>Restored & Like New</h4><p>Vibrant colors restored, mold eliminated, fabric protected. Customers notice the difference immediately.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-sec" id="reviews">
+  <div class="centered reveal">
+    <span class="sec-tag">Testimonials</span>
+    <h2 class="sec-title">What Customers <span>Say</span></h2>
+    <p class="sec-sub">Real results, real customers.</p>
+  </div>
+  <div class="rev-grid">
+    <div class="rev-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="rev-text">"Our restaurant awning was completely black with mold. Taylor came out and transformed it — looks brand new. Customers have already commented on how great the storefront looks!"</p>
+      <div class="rev-person"><div class="rev-avatar">MR</div><div><div class="rev-name">Mike R.</div><div class="rev-role">Restaurant Owner</div></div></div>
+    </div>
+    <div class="rev-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="rev-text">"Super professional, fast, and the price was very fair. I manage 6 retail locations and Bradley Awning now handles all of them. Highly recommend for anyone with commercial property."</p>
+      <div class="rev-person"><div class="rev-avatar">SL</div><div><div class="rev-name">Sarah L.</div><div class="rev-role">Property Manager</div></div></div>
+    </div>
+    <div class="rev-card reveal">
+      <div class="stars">★★★★★</div>
+      <p class="rev-text">"I didn't think our old canvas awning could be saved. Bradley Awning proved me wrong — the colors came back to life and the mildew smell is completely gone. Worth every penny."</p>
+      <div class="rev-person"><div class="rev-avatar">JT</div><div><div class="rev-name">James T.</div><div class="rev-role">Homeowner</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-sec" id="contact">
+  <div class="centered reveal">
+    <span class="sec-tag">Get In Touch</span>
+    <h2 class="sec-title">Get Your <span>Free Estimate</span></h2>
+    <p class="sec-sub">Ready to restore your awnings? Reach out today — we'll respond fast with a clear, honest quote.</p>
+  </div>
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="contact-info-cards">
+        <a href="tel:3852566659" class="info-card">
+          <span class="info-card-icon">📞</span>
+          <div><div class="info-card-label">Call or Text</div><div class="info-card-val">385-256-6659</div></div>
+        </a>
+        <a href="mailto:Taylorb@bradleyawning.com" class="info-card">
+          <span class="info-card-icon">✉️</span>
+          <div><div class="info-card-label">Email Us</div><div class="info-card-val">Taylorb@bradleyawning.com</div></div>
+        </a>
+        <a href="http://www.bradleyawning.com" class="info-card">
+          <span class="info-card-icon">🌐</span>
+          <div><div class="info-card-label">Website</div><div class="info-card-val">bradleyawning.com</div></div>
+        </a>
+      </div>
+      <div class="contact-hours">
+        <h4>📅 Hours</h4>
+        <p>Monday – Friday: 8:00 AM – 6:00 PM<br>Saturday: 9:00 AM – 4:00 PM<br>Sunday: By Appointment<br><br>We respond to all estimate requests within 24 hours.</p>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <div id="formArea">
+        <div class="form-row">
+          <div class="fg"><label>Your Name *</label><input type="text" id="fname" placeholder="John Smith"></div>
+          <div class="fg"><label>Phone Number *</label><input type="tel" id="fphone" placeholder="(801) 555-0000"></div>
+        </div>
+        <div class="fg"><label>Email Address</label><input type="email" id="femail" placeholder="you@example.com"></div>
+        <div class="form-row">
+          <div class="fg">
+            <label>Property Type</label>
+            <select id="ftype">
+              <option value="">Select one...</option>
+              <option>Restaurant / Food Service</option>
+              <option>Retail Store</option>
+              <option>Hotel / Hospitality</option>
+              <option>Office Building</option>
+              <option>Residential / Home</option>
+              <option>Other Commercial</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Number of Awnings</label>
+            <select id="fcount">
+              <option value="">Select...</option>
+              <option>1</option>
+              <option>2–3</option>
+              <option>4–6</option>
+              <option>7+</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg"><label>Tell Us About Your Awning</label><textarea id="fmsg" placeholder="Condition, size, type of fabric, any mold or staining..."></textarea></div>
+        <div class="form-error" id="formError">Please fill in your name and phone number.</div>
+        <button class="btn-submit-form" id="submitBtn" onclick="submitForm()">
+          <span>Send Estimate Request</span><span>→</span>
+        </button>
+      </div>
+      <div class="form-msg" id="formMsg">🎉 Thanks! We'll be in touch within 24 hours with your free estimate.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <a href="#">Bradley Awning</a> · Professional Awning Cleaning · Salt Lake City, UT</p>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#why">About</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:3852566659">385-256-6659</a>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// Burger menu
+const burger = document.getElementById('burger');
+const navMenu = document.getElementById('navMenu');
+burger.addEventListener('click', () => navMenu.classList.toggle('open'));
+navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMenu.classList.remove('open')));
+
+// Water drops
+const dropsEl = document.getElementById('drops');
+for (let i = 0; i < 24; i++) {
+  const d = document.createElement('div');
+  d.className = 'drop';
+  const s = 10 + Math.random() * 42;
+  d.style.cssText = `width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${8+Math.random()*11}s;animation-delay:${Math.random()*14}s;`;
+  dropsEl.appendChild(d);
+}
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Toast
+function showToast(msg, duration=3500) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), duration);
+}
+
+// Form submit — posts to backend API
+async function submitForm() {
+  const name  = document.getElementById('fname').value.trim();
+  const phone = document.getElementById('fphone').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const type  = document.getElementById('ftype').value;
+  const count = document.getElementById('fcount').value;
+  const msg   = document.getElementById('fmsg').value.trim();
+  const errEl = document.getElementById('formError');
+
+  if (!name || !phone) { errEl.style.display = 'block'; return; }
+  errEl.style.display = 'none';
+
+  const btn = document.getElementById('submitBtn');
+  btn.classList.add('loading');
+  btn.querySelector('span').textContent = 'Sending...';
+
+  try {
+    const res = await fetch('/api/estimate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, phone, email, propertyType: type, awningCount: count, message: msg })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      document.getElementById('formArea').style.display = 'none';
+      document.getElementById('formMsg').style.display = 'block';
+    } else {
+      showToast('⚠️ Something went wrong. Please call us directly at 385-256-6659.');
+      btn.classList.remove('loading');
+      btn.querySelector('span').textContent = 'Send Estimate Request';
+    }
+  } catch (err) {
+    // Fallback if no backend running
+    document.getElementById('formArea').style.display = 'none';
+    document.getElementById('formMsg').style.display = 'block';
+  }
+}
+</script>
+</body>
+</html>
